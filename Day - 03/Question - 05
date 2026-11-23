@@ -1,0 +1,22 @@
+/*
+Q5: Write a program to convert temperature from Celsius to Fahrenheit.
+
+Formula:
+Fahrenheit = (Celsius * 9 / 5) + 32
+
+*/
+
+#include <stdio.h>
+
+int main(void) {
+    int celsius;
+    int fahrenheit;
+
+    scanf("%d", &celsius);
+
+    fahrenheit = (celsius * 9 / 5) + 32;
+
+    printf("Fahrenheit=%d\n", fahrenheit);
+
+    return 0;
+}
