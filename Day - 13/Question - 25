@@ -1,0 +1,45 @@
+/*
+Q25: Write a program to implement a basic calculator using switch-case
+for +, -, *, /, and %.
+
+
+*/
+
+#include <stdio.h>
+
+int main(void) {
+    int first, second;
+    char operator;
+
+    scanf("%d %d %c", &first, &second, &operator);
+
+    switch (operator) {
+        case '+':
+            printf("%d\n", first + second);
+            break;
+        case '-':
+            printf("%d\n", first - second);
+            break;
+        case '*':
+            printf("%d\n", first * second);
+            break;
+        case '/':
+            if (second == 0) {
+                printf("Error: division by zero\n");
+            } else {
+                printf("%d\n", first / second);
+            }
+            break;
+        case '%':
+            if (second == 0) {
+                printf("Error: modulo by zero\n");
+            } else {
+                printf("%d\n", first % second);
+            }
+            break;
+        default:
+            printf("Invalid operator\n");
+    }
+
+    return 0;
+}
