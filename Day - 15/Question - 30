@@ -1,0 +1,22 @@
+/*
+Q30: Write a program to reverse a given number.
+
+*/
+
+#include <stdio.h>
+
+int main(void) {
+    int number;
+    long long reversed = 0;
+
+    scanf("%d", &number);
+
+    while (number != 0) {
+        reversed = reversed * 10 + number % 10;
+        number /= 10;
+    }
+
+    printf("%lld\n", reversed);
+
+    return 0;
+}
