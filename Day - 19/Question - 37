@@ -1,0 +1,35 @@
+/*
+Q37: Write a program to find the LCM of two numbers.
+
+*/
+
+#include <stdio.h>
+
+int main(void) {
+    long long first, second;
+    long long a, b;
+
+    scanf("%lld %lld", &first, &second);
+
+    // Use absolute values so negative inputs are handled too.
+    a = (first < 0) ? -first : first;
+    b = (second < 0) ? -second : second;
+
+    if (a == 0 || b == 0) {
+        printf("0\n");
+        return 0;
+    }
+
+    long long x = a;
+    long long y = b;
+
+    while (y != 0) {
+        long long remainder = x % y;
+        x = y;
+        y = remainder;
+    }
+
+    printf("%lld\n", (a / x) * b);
+
+    return 0;
+}
