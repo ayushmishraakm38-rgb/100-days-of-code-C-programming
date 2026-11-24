@@ -1,0 +1,52 @@
+/*
+Q33: Write a program to check if a number is an Armstrong number.
+
+An Armstrong number is equal to the sum of its digits, each raised to the
+power of the number of digits.
+
+*/
+
+#include <stdio.h>
+
+int main(void) {
+    int number, original, digitCount = 0;
+    int temp;
+    long long sum = 0;
+
+    scanf("%d", &number);
+
+    if (number < 0) {
+        printf("Not Armstrong\n");
+        return 0;
+    }
+
+    original = number;
+    temp = number;
+
+    do {
+        digitCount++;
+        temp /= 10;
+    } while (temp != 0);
+
+    temp = number;
+
+    do {
+        int digit = temp % 10;
+        long long power = 1;
+
+        for (int i = 0; i < digitCount; i++) {
+            power *= digit;
+        }
+
+        sum += power;
+        temp /= 10;
+    } while (temp != 0);
+
+    if (sum == original) {
+        printf("Armstrong\n");
+    } else {
+        printf("Not Armstrong\n");
+    }
+
+    return 0;
+}
