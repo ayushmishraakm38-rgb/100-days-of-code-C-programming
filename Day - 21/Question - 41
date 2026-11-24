@@ -1,0 +1,32 @@
+/*
+Q41: Write a program to swap the first and last digit of a number.
+
+*/
+
+#include <stdio.h>
+
+int main(void) {
+    long long number, firstDigit, lastDigit;
+    long long placeValue = 1;
+    long long middle;
+
+    scanf("%lld", &number);
+
+    if (number < 0) {
+        printf("Enter a non-negative number\n");
+        return 0;
+    }
+
+    lastDigit = number % 10;
+
+    while (number / placeValue >= 10) {
+        placeValue *= 10;
+    }
+
+    firstDigit = number / placeValue;
+    middle = (number % placeValue) / 10;
+
+    printf("%lld\n", lastDigit * placeValue + middle * 10 + firstDigit);
+
+    return 0;
+}
