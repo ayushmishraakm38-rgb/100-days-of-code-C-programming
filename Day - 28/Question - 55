@@ -1,0 +1,36 @@
+/*
+Q55: Write a program to print all the prime numbers from 1 to n.
+
+*/
+
+#include <stdio.h>
+
+int main(void) {
+    int n;
+    int firstPrime = 1;
+
+    scanf("%d", &n);
+
+    for (int number = 2; number <= n; number++) {
+        int isPrime = 1;
+
+        for (int divisor = 2; divisor <= number / divisor; divisor++) {
+            if (number % divisor == 0) {
+                isPrime = 0;
+                break;
+            }
+        }
+
+        if (isPrime) {
+            if (!firstPrime) {
+                printf(" ");
+            }
+            printf("%d", number);
+            firstPrime = 0;
+        }
+    }
+
+    printf("\n");
+
+    return 0;
+}
