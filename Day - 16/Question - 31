@@ -1,0 +1,33 @@
+/*
+Q31: Write a program to take a number as input and print its equivalent
+binary representation.
+
+*/
+
+#include <stdio.h>
+
+int main(void) {
+    unsigned int number;
+    int binary[32];
+    int count = 0;
+
+    scanf("%u", &number);
+
+    if (number == 0) {
+        printf("0\n");
+        return 0;
+    }
+
+    while (number > 0) {
+        binary[count++] = number % 2;
+        number /= 2;
+    }
+
+    for (int i = count - 1; i >= 0; i--) {
+        printf("%d", binary[i]);
+    }
+
+    printf("\n");
+
+    return 0;
+}
