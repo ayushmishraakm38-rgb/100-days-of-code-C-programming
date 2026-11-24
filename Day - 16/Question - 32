@@ -1,0 +1,32 @@
+/*
+Q32: Write a program to check if a number is a palindrome.
+
+*/
+
+#include <stdio.h>
+
+int main(void) {
+    int number, original;
+    long long reversed = 0;
+
+    scanf("%d", &number);
+    original = number;
+
+    if (number < 0) {
+        printf("Not palindrome\n");
+        return 0;
+    }
+
+    while (number != 0) {
+        reversed = reversed * 10 + number % 10;
+        number /= 10;
+    }
+
+    if (original == reversed) {
+        printf("Palindrome\n");
+    } else {
+        printf("Not palindrome\n");
+    }
+
+    return 0;
+}
