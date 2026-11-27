@@ -1,0 +1,47 @@
+/*
+Q68: Delete an element from an array at a given position.
+Positions are 1-based.
+*/
+
+#include <stdio.h>
+
+int main(void) {
+    int n;
+    int array[100];
+    int position;
+
+    scanf("%d", &n);
+
+    if (n < 1 || n > 100) {
+        return 0;
+    }
+
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &array[i]);
+    }
+
+    scanf("%d", &position);
+
+    if (position < 1 || position > n) {
+        printf("Invalid position\n");
+        return 0;
+    }
+
+    /* Shift following elements left to overwrite the deleted element. */
+    for (int i = position - 1; i < n - 1; i++) {
+        array[i] = array[i + 1];
+    }
+
+    n--;
+
+    for (int i = 0; i < n; i++) {
+        if (i > 0) {
+            printf(" ");
+        }
+        printf("%d", array[i]);
+    }
+
+    printf("\n");
+
+    return 0;
+}
