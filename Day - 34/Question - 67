@@ -1,0 +1,48 @@
+/*
+Q67: Insert an element in an array at a given position.
+Positions are 1-based.
+*/
+
+#include <stdio.h>
+
+int main(void) {
+    int n;
+    int array[101];
+    int position, value;
+
+    scanf("%d", &n);
+
+    if (n < 1 || n >= 101) {
+        return 0;
+    }
+
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &array[i]);
+    }
+
+    scanf("%d %d", &position, &value);
+
+    if (position < 1 || position > n + 1) {
+        printf("Invalid position\n");
+        return 0;
+    }
+
+    /* Shift elements right to make room at the requested position. */
+    for (int i = n; i >= position; i--) {
+        array[i] = array[i - 1];
+    }
+
+    array[position - 1] = value;
+    n++;
+
+    for (int i = 0; i < n; i++) {
+        if (i > 0) {
+            printf(" ");
+        }
+        printf("%d", array[i]);
+    }
+
+    printf("\n");
+
+    return 0;
+}
