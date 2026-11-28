@@ -1,0 +1,58 @@
+/*
+Q79: Perform diagonal traversal of a matrix. This traversal visits diagonals in order, alternating direction.
+*/
+
+#include <stdio.h>
+
+int main(void) {
+    int rows, columns;
+    int matrix[100][100];
+
+    scanf("%d %d", &rows, &columns);
+
+    if (rows < 1 || rows > 100 || columns < 1 || columns > 100) {
+        return 0;
+    }
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    int first = 1;
+
+    for (int diagonal = 0; diagonal < rows + columns - 1; diagonal++) {
+        if (diagonal % 2 == 0) {
+            int row = diagonal < rows ? diagonal : rows - 1;
+            int column = diagonal - row;
+
+            while (row >= 0 && column < columns) {
+                if (!first) {
+                    printf(" ");
+                }
+                printf("%d", matrix[row][column]);
+                first = 0;
+                row--;
+                column++;
+            }
+        } else {
+            int column = diagonal < columns ? diagonal : columns - 1;
+            int row = diagonal - column;
+
+            while (column >= 0 && row < rows) {
+                if (!first) {
+                    printf(" ");
+                }
+                printf("%d", matrix[row][column]);
+                first = 0;
+                row++;
+                column--;
+            }
+        }
+    }
+
+    printf("\n");
+
+    return 0;
+}
