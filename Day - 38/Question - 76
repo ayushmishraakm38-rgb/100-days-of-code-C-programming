@@ -1,0 +1,40 @@
+/*
+Q76: Check if a matrix is symmetric. A matrix is symmetric if it is square and each element equals its corresponding element across the main diagonal.
+*/
+
+#include <stdio.h>
+
+int main(void) {
+    int rows, columns;
+    int matrix[100][100];
+    int isSymmetric = 1;
+
+    scanf("%d %d", &rows, &columns);
+
+    if (rows < 1 || rows > 100 || columns < 1 || columns > 100) {
+        return 0;
+    }
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+
+    if (rows != columns) {
+        isSymmetric = 0;
+    } else {
+        for (int i = 0; i < rows && isSymmetric; i++) {
+            for (int j = i + 1; j < columns; j++) {
+                if (matrix[i][j] != matrix[j][i]) {
+                    isSymmetric = 0;
+                    break;
+                }
+            }
+        }
+    }
+
+    printf("%s\n", isSymmetric ? "True" : "False");
+
+    return 0;
+}
